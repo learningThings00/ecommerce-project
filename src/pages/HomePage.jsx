@@ -1,8 +1,13 @@
+import { Header } from '../componenets/Header';
 import './HomePage.css'
 
 export function HomePage() {
   return (
     <>
+
+      <title>ecommerce project</title>
+
+      <Header />
 
 
       <div className="home-page">

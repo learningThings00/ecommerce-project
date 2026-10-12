@@ -1,14 +1,15 @@
-import { Header } from './componenets/Header';
+import { Routes, Route } from 'react-router';
 import { HomePage } from './pages/HomePage.jsx';
-import './App.css'
+import { CheckoutPage } from './pages/checkout/CheckoutPage';
+import './App.css';
 
 function App() {
 
   return (
-    <>
-      <Header />
-      <HomePage />
-    </>
+    <Routes>
+      <Route index element={<HomePage />} />
+      <Route path="/checkout" element={<CheckoutPage />} />
+    </Routes>
   )
 }
 
