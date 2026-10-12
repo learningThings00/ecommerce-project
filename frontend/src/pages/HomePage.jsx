@@ -1,5 +1,5 @@
 import { Header } from '../componenets/Header';
-import { products } from '../../ecommerce-project-main/data/products.js'
+import { products } from '../../starting-code/data/products.js'
 import './HomePage.css'
 
 export function HomePage() {
