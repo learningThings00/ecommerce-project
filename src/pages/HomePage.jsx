@@ -5,7 +5,7 @@ export function HomePage() {
   return (
     <>
 
-      <title>ecommerce project</title>
+      <title>Home</title>
 
       <link rel="icon" href="home-favicon.png" />
 

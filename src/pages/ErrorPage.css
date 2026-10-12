@@ -1,0 +1,14 @@
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  background-color: rgb(233, 233, 233);
+}
+
+.error-message {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 45px;
+  color: rgb(212, 81, 81);
+}

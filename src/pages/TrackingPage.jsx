@@ -7,6 +7,8 @@ export function TrackingPage() {
     <>
       <title>Tracking</title>
 
+      <link rel="icon" href="tracking-favicon.png" />
+
       <Header />
 
       <div className="tracking-page">
