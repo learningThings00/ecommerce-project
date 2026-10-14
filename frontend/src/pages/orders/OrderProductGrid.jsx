@@ -7,6 +7,9 @@ export function OrderProductGrid({ order }) {
     <div className="order-details-grid">
 
       {order.products.map((orderProduct) => {
+        let progress = ((dayjs().valueOf() - order.orderTimeMs) / (orderProduct.estimatedDeliveryTimeMs - order.orderTimeMs)) * 100
+        progress = progress > 100 ? 100 : progress;
+
         return (
           <Fragment key={orderProduct.product.id}>
             <div className="product-image-container">
@@ -18,7 +21,7 @@ export function OrderProductGrid({ order }) {
                 {orderProduct.product.name}
               </div>
               <div className="product-delivery-date">
-                Arriving on: {dayjs(orderProduct.estimatedDeliveryDateMs).format('MMMM D')}
+                {progress === 100 ? 'Delivered on' : 'Arriving on'}: {dayjs(orderProduct.estimatedDeliveryTimeMs).format('MMMM D')}
               </div>
               <div className="product-quantity">
                 Quantity: {orderProduct.quantity}
@@ -30,7 +33,7 @@ export function OrderProductGrid({ order }) {
             </div>
 
             <div className="product-actions">
-              <Link to="/tracking">
+              <Link to={`/tracking/${order.id}/${orderProduct.product.id}`}>
                 <button className="track-package-button button-secondary">
                   Track package
                 </button>
