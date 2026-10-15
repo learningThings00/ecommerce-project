@@ -1,12 +1,20 @@
 import dayjs from "dayjs";
+import axios from "axios";
 import { Fragment } from "react";
 import { Link } from "react-router";
 
-export function OrderProductGrid({ order }) {
+export function OrderProductGrid({ order, loadCart }) {
   return (
     <div className="order-details-grid">
 
       {order.products.map((orderProduct) => {
+        const addToCart = async () => {
+          await axios.post('/api/cart-items', {
+            productId: orderProduct.product.id,
+            quantity: 1
+          })
+          await loadCart();
+        }
         let progress = ((dayjs().valueOf() - order.orderTimeMs) / (orderProduct.estimatedDeliveryTimeMs - order.orderTimeMs)) * 100
         progress = progress > 100 ? 100 : progress;
 
@@ -28,7 +36,7 @@ export function OrderProductGrid({ order }) {
               </div>
               <button className="buy-again-button button-primary">
                 <img className="buy-again-icon" src="images/icons/buy-again.png" />
-                <span className="buy-again-message">Add to Cart</span>
+                <span onClick={addToCart} className="buy-again-message">Add to Cart</span>
               </button>
             </div>
 
