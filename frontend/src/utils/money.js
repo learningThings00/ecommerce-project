@@ -1,3 +1,5 @@
 export function formatCurrency(priceCents) {
-  return `$${(priceCents / 100).toFixed(2)}`;
+  const price = Math.abs(priceCents) / 100;
+  const sign = priceCents < 0 ? '-' : '';
+  return `${sign}$${price.toFixed(2)}`;
 }
